@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX BMI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>BMI calculator</h1>
+<div id="wrapper">
+    <form id="input">
+        <label for="lengte">lengte in cm :</label>
+        <input type="text" id="lengte" name="lengte_cm"><br>
+        <label for="gewicht">gewicht in kg</label>
+        <input type="text" id="gewicht" name="gewicht"><br>
+    </form>
+    <input type="button" id="bereken" value="bereken BMI">
+</div>
+
+
+<div id="resultaat"></div>
+<script src="ajax.js"></script>
+<script>
+    var gewicht = document.getElementById('gewicht');
+    var lengte = document.getElementById('lengte');
+    var bereken = document.getElementById('bereken');
+
+    var resultaat = document.getElementById('resultaat');
+    var input = document.getElementById('input');
+    input.addEventListener('click', function () {
+        resultaat.style.border = "";
+        resultaat.innerHTML = "";
+    });
+    bereken.addEventListener('click', function () {
+        gewichtInput = gewicht.value;
+        lengteInput = lengte.value;
+        ajax(gewichtInput, lengteInput);
+    });
+</script>
+</body>
+</html>
